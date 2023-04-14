@@ -1,41 +1,86 @@
 <?php namespace Winter\Market;
 
-/**
- * The plugin.php file (called the plugin initialization script) defines the plugin information class.
- */
-
-use System\Classes\PluginBase;
 use Backend;
+use Backend\Models\UserRole;
+use System\Classes\PluginBase;
 
+/**
+ * Market Plugin Information File
+ */
 class Plugin extends PluginBase
 {
-
-    public function pluginDetails()
+    /**
+     * Returns information about this plugin.
+     */
+    public function pluginDetails(): array
     {
-        // nama plugin
         return [
-            'name' => 'Winter Market',
+            'name'        => 'winter.market::lang.plugin.name',
+            'description' => 'winter.market::lang.plugin.description',
+            'author'      => 'Winter',
+            'icon'        => 'icon-leaf'
         ];
     }
 
-    public function registerComponents()
+    /**
+     * Register method, called when the plugin is first registered.
+     */
+    public function register(): void
     {
-        // komponent harus diregistrasi
-        // 
+
+    }
+
+    /**
+     * Boot method, called right before the request route.
+     */
+    public function boot(): void
+    {
+
+    }
+
+    /**
+     * Registers any frontend components implemented in this plugin.
+     */
+    public function registerComponents(): array
+    {
+        return []; // Remove this line to activate
+
         return [
-            '\Winter\Market\Components\Products' => 'products'
+            'Winter\Market\Components\MyComponent' => 'myComponent',
         ];
     }
-    public function registerNavigation()
+
+    /**
+     * Registers any backend permissions used by this plugin.
+     */
+    public function registerPermissions(): array
     {
-        // memunculkan menu Market  di backend
-        // route url /backend/winter/market/products untuk managemen product
+        return []; // Remove this line to activate
+
         return [
-            'products' => [
-                'label' => 'Market',
-                'url'   => Backend::url('winter/market/products'),
-                'icon'  => 'icon-shopping-cart',
-            ]
+            'winter.market.some_permission' => [
+                'tab' => 'winter.market::lang.plugin.name',
+                'label' => 'winter.market::lang.permissions.some_permission',
+                'roles' => [UserRole::CODE_DEVELOPER, UserRole::CODE_PUBLISHER],
+            ],
+        ];
+    }
+
+    /**
+     * Registers backend navigation items for this plugin.
+     */
+    public function registerNavigation(): array
+    {
+        return []; // Remove this line to activate
+
+        return [
+            'market' => [
+                'label'       => 'winter.market::lang.plugin.name',
+                'url'         => Backend::url('winter/market/mycontroller'),
+                'icon'        => 'icon-leaf',
+                'permissions' => ['winter.market.*'],
+                'order'       => 500,
+            ],
         ];
     }
 }
