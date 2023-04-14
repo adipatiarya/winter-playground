@@ -3,6 +3,12 @@
 # ===================================
 
 fields:
-    id:
-        label: 'winter.market::lang.models.general.id'
-        disabled: true
+    name:
+        label: 'Nama produk'
+    slug:
+        label: 'Url product (Slug)'
+    price:
+        label: 'Harga'
+    description:
+        label: 'Deskripsi'
+    

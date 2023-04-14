@@ -12,7 +12,7 @@ class CreateProductsTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('slug')->index();
+            $table->string('slug')->unique();
             $table->string('name')->nullable();
             $table->double( 'price' );
             $table->string('description')->nullable();

@@ -3,9 +3,14 @@
 # ===================================
 
 columns:
-    id:
-        label: 'winter.market::lang.models.general.id'
-        searchable: true
+    name:
+        label: 'Nama'
+    slug:
+        label: 'Slug'
+    price:
+        label: 'Harga'
+    description:
+        label: 'Deskripsi'
     created_at:
         label: 'winter.market::lang.models.general.created_at'
         type: datetime

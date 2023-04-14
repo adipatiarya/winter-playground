@@ -43,10 +43,10 @@ class Plugin extends PluginBase
      */
     public function registerComponents(): array
     {
-        return []; // Remove this line to activate
+       
 
         return [
-            'Winter\Market\Components\MyComponent' => 'myComponent',
+            'Winter\Market\Components\Products' => 'products',
         ];
     }
 
@@ -55,7 +55,7 @@ class Plugin extends PluginBase
      */
     public function registerPermissions(): array
     {
-        return []; // Remove this line to activate
+        
 
         return [
             'winter.market.some_permission' => [
@@ -71,13 +71,12 @@ class Plugin extends PluginBase
      */
     public function registerNavigation(): array
     {
-        return []; // Remove this line to activate
 
         return [
             'market' => [
                 'label'       => 'winter.market::lang.plugin.name',
-                'url'         => Backend::url('winter/market/mycontroller'),
-                'icon'        => 'icon-leaf',
+                'url'         => Backend::url('winter/market/products'),
+                'icon'        => 'icon-shopping-cart',
                 'permissions' => ['winter.market.*'],
                 'order'       => 500,
             ],
