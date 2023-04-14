@@ -43,8 +43,6 @@ class Plugin extends PluginBase
      */
     public function registerComponents(): array
     {
-       
-
         return [
             'Winter\Market\Components\Products' => 'products',
         ];
