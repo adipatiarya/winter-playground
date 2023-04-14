@@ -1,8 +1,8 @@
 ## Market Plugin create
 
-
+### Step 1
 ```
-  php artisan create:plugin Winter.Market
+php artisan create:plugin Winter.Market
 ```
 ```
 php artisan create:model Winter.Market Product
