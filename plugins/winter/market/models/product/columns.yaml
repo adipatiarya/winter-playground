@@ -3,6 +3,8 @@
 # ===================================
 
 columns:
+    id:
+        label: 'Id'
     name:
         label: 'Nama'
     slug:

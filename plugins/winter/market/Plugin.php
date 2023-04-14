@@ -27,7 +27,7 @@ class Plugin extends PluginBase
      */
     public function register(): void
     {
-
+       // echo 'register';
     }
 
     /**
@@ -35,7 +35,7 @@ class Plugin extends PluginBase
      */
     public function boot(): void
     {
-
+        //echo 'boot';
     }
 
     /**

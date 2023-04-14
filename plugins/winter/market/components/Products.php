@@ -1,6 +1,7 @@
 <?php namespace Winter\Market\Components;
-
+use App;
 use Cms\Classes\ComponentBase;
+use Winter\Market\Models\Product;
 
 class Products extends ComponentBase
 {
@@ -10,16 +11,27 @@ class Products extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Products Component',
-            'description' => 'No description provided yet...'
+            'name'  => 'Products Component',
         ];
     }
 
-    /**
-     * Returns the properties provided by the component
-     */
     public function defineProperties()
     {
         return [];
+    }
+
+    public function findAll() {
+
+        return Product::all();
+    }
+
+    public function findOne($slug) {
+
+        $product = Product::where('slug', $slug)->first();
+
+        if (!$product) return \Response::make($this->controller->run('404'), 404);
+        return $product;
+
+        
     }
 }
