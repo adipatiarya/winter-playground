@@ -12,5 +12,9 @@ class Product extends Model
     public $table = 'winter_market_products';
 
     protected $fillable = ['name','slug','price', 'description'];
-    public $rules = [];
+    public $rules = [
+        'name'   => 'required',
+        'slug'    => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique'],
+        'price' => 'required',
+    ];
 }
